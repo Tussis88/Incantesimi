@@ -1,0 +1,39 @@
+:root {
+    --backgroundc: antiquewhite;
+    --backgroundalt: rgb(235, 219, 198);
+    --gridcolor: grey;
+    --headcolor: coral;
+}
+
+html {
+    background-color: var(--backgroundc);
+    font-size: large;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
+    border-color: var(--gridcolor);
+    padding: 4px;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--backgroundalt);
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%
+}
+
+th {
+    border: none;
+    background-color: var(--headcolor);
+    color: var(--backgroundc);
+}
+
+.lvl {
+    width: 5%;
+    text-align: center;
+}
