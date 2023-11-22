@@ -37,3 +37,34 @@ th {
     width: 5%;
     text-align: center;
 }
+
+
+@media (max-width:480px) {
+    html {
+        font-size: x-large;
+    }
+
+    body {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    table {
+        width: 100%;
+        border-width: 2px 0px;
+    }
+
+    td,
+    th {
+        border-width: 2px;
+    }
+
+    button {
+        border: 2px solid;
+        margin: 1%;
+        color: var(--headcolor);
+        background-color: transparent;
+        padding: 0% 1.5% 0% 1%;
+
+    }
+}
