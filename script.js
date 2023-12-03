@@ -1,13 +1,4 @@
-const tables = ['tab_1', 'tab_2'];
-var totalTables = tables.length;
-
-function check_table_lenght(id) {
-    var table = document.getElementById(id);
-    var rowCount = table.rows.length;
-    return rowCount - 1;
-};
-
-function add_row(id, liv) {
+function add_row(id) {
     var table = document.getElementById(id);
     var row = table.insertRow(-1); // con il -1 inserisce una nuova riga alla fine della tabella
     var cell1 = row.insertCell(0);
@@ -15,17 +6,23 @@ function add_row(id, liv) {
     var cell3 = row.insertCell(2);
 
     cell1.className = 'lvl';
-    cell1.innerHTML = liv;
+    cell1.innerHTML = '-';
     cell1.addEventListener('click', function () {
         cell1_Clicked(id, row.rowIndex);
     });
 
     cell2.contentEditable = 'true';
 
+    cell3.className = 'add';
     cell3.innerHTML = 1;
     cell3.addEventListener('click', function () {
         cell3_Clicked(id, row.rowIndex);
+
     });
+    // aggiungi 1 al totale
+    var totalValue = table.rows[0].cells[2].innerHTML;
+    totalValue++;
+    table.rows[0].cells[2].innerHTML = totalValue;
 
 };
 
@@ -34,8 +31,11 @@ function add_row(id, liv) {
 function cell3_Clicked(Id, rowIndex) {
     var table = document.getElementById(Id);
     var cellValue = table.rows[rowIndex].cells[2].innerHTML;
+    var totalValue = table.rows[0].cells[2].innerHTML;
     cellValue++;
+    totalValue++;
     table.rows[rowIndex].cells[2].innerHTML = cellValue;
+    table.rows[0].cells[2].innerHTML = totalValue;
 
     console.log('cella toccata ' + Id + ' alla riga ' + rowIndex + '. Valore: ' + cellValue);
 };
@@ -43,18 +43,13 @@ function cell3_Clicked(Id, rowIndex) {
 function cell1_Clicked(Id, rowIndex) {
     var table = document.getElementById(Id);
     var cellValue = table.rows[rowIndex].cells[2].innerHTML;
+    var totalValue = table.rows[0].cells[2].innerHTML;
     cellValue--;
+    totalValue--;
     table.rows[rowIndex].cells[2].innerHTML = cellValue;
+    table.rows[0].cells[2].innerHTML = totalValue;
 
     if (cellValue == 0) {
         table.deleteRow(rowIndex);
     }
-}
-
-// // Tasto per cancellare l'ultima riga (eliminato)
-// function del_row(id) {
-//     lastRow = check_table_lenght(id);
-//     if (lastRow >= 1) {
-//         document.getElementById(id).deleteRow(lastRow);
-//     };
-// };
+};

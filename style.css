@@ -1,13 +1,22 @@
 :root {
-    --backgroundc: antiquewhite;
-    --backgroundalt: rgb(235, 219, 198);
-    --gridcolor: grey;
-    --headcolor: coral;
+
+    --backgroundc: #fff;
+    --tab1: #d6e2f1;
+    --tab2: #c9d0e2;
+    --gridcolor: #3c3b51;
+    --headcolor: #61a3ba;
+    --green: #46b29e;
+    --red: #c15757;
+    --textcolor: #18181a;
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
 
 html {
     background-color: var(--backgroundc);
     font-size: large;
+    font-family: 'EB Garamond', serif;
 }
 
 table,
@@ -18,8 +27,12 @@ th {
     padding: 4px;
 }
 
+tr:nth-child(even) {
+    background-color: var(--tab1);
+}
+
 tr:nth-child(odd) {
-    background-color: var(--backgroundalt);
+    background-color: var(--tab2);
 }
 
 table {
@@ -31,17 +44,26 @@ th {
     border: none;
     background-color: var(--headcolor);
     color: var(--backgroundc);
+
 }
 
 .lvl {
-    width: 5%;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.add {
+    width: 10%;
     text-align: center;
 }
+
 
 
 @media (max-width:480px) {
     html {
         font-size: x-large;
+        color: var(--textcolor)
     }
 
     body {
@@ -52,6 +74,7 @@ th {
     table {
         width: 100%;
         border-width: 2px 0px;
+        margin: 0;
     }
 
     td,
@@ -59,12 +82,46 @@ th {
         border-width: 2px;
     }
 
-    button {
+    .adder {
+        font-weight: bold;
+        width: 100%;
         border: 2px solid;
-        margin: 1%;
         color: var(--headcolor);
         background-color: transparent;
-        padding: 0% 1.5% 0% 1%;
+        padding: 4px;
+        margin: 0;
+        transition: 1s .2s;
+    }
 
+    .adder:active {
+        color: var(--backgroundc);
+        background-color: var(--headcolor);
+        transition: 0s;
+    }
+
+    .lvl {
+        transition: 1s .2s;
+    }
+
+    .lvl:active {
+        color: var(--backgroundc);
+        background-color: var(--red);
+        transition: 0s;
+    }
+
+
+    .add {
+        transition: 1s .2s;
+    }
+
+    .add:active {
+        color: var(--backgroundc);
+        background-color: var(--green);
+        transition: 0s;
+    }
+
+
+    .tables {
+        margin-bottom: 5%;
     }
 }
